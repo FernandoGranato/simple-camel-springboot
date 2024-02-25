@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "32a6a39e-ef90-4525-89af-f0da9f247ece",
+		"name": "camel-example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6665557"
+	},
+	"item": [
+		{
+			"name": "Configure new name address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Matteo\",\r\n    \"houseNumber\": \"11\",\r\n    \"city\": \"Cerignola\",\r\n    \"province\": \"Foggia\",\r\n    \"postalCode\": \"71042\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/masterClass/nameAddress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"masterClass",
+						"nameAddress"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
