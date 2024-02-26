@@ -29,7 +29,18 @@ public class NewRestRoute extends RouteBuilder {
 //                .log(LoggingLevel.INFO, "Transformed body: ${body}")
 //                .convertBodyTo(String.class)
 //                .to("file:src/data/output?fileName=outputFile.csv&fileExist=append&appendChars=\\n");
+
+                .to("direct:toDB")
+                .to("direct:toQueue");
+
+
+        from("direct:toDB")
+                .routeId("toDBId")
                 .to("jpa:" + NameAddress.class.getName());
+
+        from("direct:toQueue")
+                .routeId("toQueueId")
+                .to("activemq:queue:nameaddressqueue?exchangePattern=InOnly");
 
     }
 

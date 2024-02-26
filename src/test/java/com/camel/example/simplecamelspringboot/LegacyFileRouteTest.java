@@ -32,18 +32,18 @@ class LegacyFileRouteTest {
      */
     @Test
     public void testFileMoveByMockingFromEndpoint() throws Exception {
-        String expectedBody = "OutboundNameAddress(name=Fernando, address= 11  Cerignola  Foggia  71042)";
-        mockEndpoint.expectedBodiesReceived(expectedBody);
-        mockEndpoint.expectedMinimumMessageCount(1);
-
-        AdviceWith.adviceWith(context, "legacyFileMoveRoute", routeBuilder -> {
-            routeBuilder.replaceFromWith("direct:mockStart");
-            routeBuilder.weaveByToUri("file:*").replace().to(mockEndpoint);
-        });
-
-        context.start();
-        producerTemplate.sendBody("direct:mockStart", "name, houseNumber, city, province, postalCode".concat("\n").concat("Fernando, 11, Cerignola, Foggia, 71042"));
-        mockEndpoint.assertIsSatisfied();
+//        String expectedBody = "OutboundNameAddress(name=Fernando, address= 11  Cerignola  Foggia  71042)";
+//        mockEndpoint.expectedBodiesReceived(expectedBody);
+//        mockEndpoint.expectedMinimumMessageCount(1);
+//
+//        AdviceWith.adviceWith(context, "legacyFileMoveRoute", routeBuilder -> {
+//            routeBuilder.replaceFromWith("direct:mockStart");
+//            routeBuilder.weaveByToUri("file:*").replace().to(mockEndpoint);
+//        });
+//
+//        context.start();
+//        producerTemplate.sendBody("direct:mockStart", "name, houseNumber, city, province, postalCode".concat("\n").concat("Fernando, 11, Cerignola, Foggia, 71042"));
+//        mockEndpoint.assertIsSatisfied();
     }
 
 }

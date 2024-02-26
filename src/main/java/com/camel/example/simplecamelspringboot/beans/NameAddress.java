@@ -3,12 +3,13 @@ package com.camel.example.simplecamelspringboot.beans;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "NAME_ADDRESS")
 @NamedQuery(name = "fetchAllRows", query = "select x from NameAddress x")
-public class NameAddress {
+public class NameAddress implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
